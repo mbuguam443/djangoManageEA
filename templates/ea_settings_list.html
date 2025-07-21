@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EA Settings</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 2rem auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #a4f5a1;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">EA Settings</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Account No</th>
+                <th>Magic Number</th>
+                <th>TP</th>
+                <th>SL</th>
+                <th>Risk %</th>
+                <th>Enabled</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in settings %}
+            <tr>
+                <td>{{ item.account_no }}</td>
+                <td>{{ item.magic_number }}</td>
+                <td>{{ item.tp }}</td>
+                <td>{{ item.sl }}</td>
+                <td>{{ item.risk_percent }}</td>
+                <td>{{ item.enable_ea }}</td>
+                <td>
+                    <a href="{% url 'ea_settings_edit' item.id %}">Edit</a> |
+                    <a href="{% url 'ea_settings_delete' item.id %}">Delete</a>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

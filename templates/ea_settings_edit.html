@@ -1,0 +1,28 @@
+<h2>Edit EA Setting</h2>
+
+<form method="post" action="{% url 'ea_settings_edit' record.id %}" style="width: 60%; margin: 2rem auto;">
+    {% csrf_token %}
+    
+    <label>Account No:</label>
+    <input type="number" name="account_no" value="{{ record.account_no }}"><br>
+
+    <label>Magic Number:</label>
+    <input type="number" name="magic_number" value="{{ record.magic_number }}"><br>
+
+    <label>TP:</label>
+    <input type="number" name="tp" value="{{ record.tp }}"><br>
+
+    <label>SL:</label>
+    <input type="number" name="sl" value="{{ record.sl }}"><br>
+
+    <label>Risk Percent:</label>
+    <input type="number" name="risk_percent" value="{{ record.risk_percent }}"><br>
+
+    <label>Enable EA:</label>
+    <select name="enable_ea">
+        <option value="true" {% if record.enable_ea %}selected{% endif %}>True</option>
+        <option value="false" {% if not record.enable_ea %}selected{% endif %}>False</option>
+    </select><br><br>
+
+    <button type="submit">Update</button>
+</form>

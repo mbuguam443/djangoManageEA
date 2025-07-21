@@ -1,0 +1,14 @@
+<form method="post" action="{% url 'ea_settings_create' %}" style="width: 60%; margin: 2rem auto;">
+    {% csrf_token %}
+    <label>Account No:</label><input type="number" name="account_no"><br>
+    <label>Magic Number:</label><input type="number" name="magic_number"><br>
+    <label>TP:</label><input type="number" name="tp"><br>
+    <label>SL:</label><input type="number" name="sl"><br>
+    <label>Risk Percent:</label><input type="number" name="risk_percent"><br>
+    <label>Enable EA:</label>
+    <select name="enable_ea">
+        <option value="true">True</option>
+        <option value="false">False</option>
+    </select><br><br>
+    <button type="submit">Save</button>
+</form>
